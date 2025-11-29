@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --brown-sugar: #A97458;
+    --gold-rich: #D6A461;
+    --text-dark: #2B1A12; 
+    --bg:#f6f6f8;
+    --panel:#fff;
+    --accent:#2563eb;
+    --muted:#666;   
+}
+
+h1 {
+    font-family: "Playfair Display", serif;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--bg);
+}
+
+p {
+    margin-bottom: 12px;
+}
+
+.hero-section {
+    height: 100dvh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.home-hero {
+    background-image: url('../media/favicon.01.jpg');
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 720px;
+    padding: 0 20px;
+    color: var(--bg);
+    text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+
+.hero-content h1 { font-size: 3.2rem; margin-bottom: 10px; }
+.hero-content p { font-size: 1.2rem; margin-bottom: 22px; }
+.hero-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: var(--caramel);
+    border-radius: 999px;
+    color: var(--text-light);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    transition: 0.25s;
+}
