@@ -43,3 +43,32 @@ function getOSName() {
   if (/Linux/.test(platform)) return "Linux";
   return "Unknown";
 }
+
+const cookieModal = document.getElementById("cookieModal");
+const settingsModal = document.getElementById("settingsModal");
+const acceptAllBtn = document.getElementById("acceptAllBtn");
+const settingsBtn = document.getElementById("settingsBtn");
+const saveSettingsBtn = document.getElementById("saveSettingsBtn");
+const settingsForm = document.getElementById("settingsForm");
+
+function showModal(el) { el.setAttribute("aria-hidden", "false"); }
+function hideModal(el) { el.setAttribute("aria-hidden", "true"); }
+
+function logCookies() {
+  console.log("document.cookie:", document.cookie);
+  console.log("browser:", getCookie("browser"), "os:", getCookie("os"), "screen:", getCookie("screen"), "visited:", getCookie("visited"));
+}
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (!navigator.cookieEnabled) {
+    console.warn("Cookies are disabled in this browser.");
+    return;
+  }
+  if (!anyCookieExists()) {
+    setTimeout(() => showModal(cookieModal), 1000);
+  } else {
+    console.log("Cookies exist; dialogs won't show.");
+    logCookies();
+  }
+});
