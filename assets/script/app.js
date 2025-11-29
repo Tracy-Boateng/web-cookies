@@ -22,3 +22,24 @@ function getCookie(name) {
 function anyCookieExists() {
   return document.cookie && document.cookie.length > 0;
 }
+
+function getBrowserName() {
+  const ua = navigator.userAgent;
+  if (ua.includes("Edg/") || ua.includes("Edge/")) return "Edge";
+  if (ua.includes("OPR/") || ua.includes("Opera")) return "Opera";
+  if (ua.includes("Chrome/") && !ua.includes("Chromium")) return "Chrome";
+  if (ua.includes("CriOS")) return "Chrome (iOS)";
+  if (ua.includes("Firefox/")) return "Firefox";
+  if (/Safari/.test(ua) && !/Chrome/.test(ua) && !/Chromium/.test(ua)) return "Safari";
+  return "Unknown";
+}
+function getOSName() {
+  const platform = navigator.platform || "unknown";
+  const ua = navigator.userAgent || "";
+  if (/Windows/.test(platform) || /Win/.test(ua)) return "Windows";
+  if (/Mac/.test(platform) || /Macintosh/.test(ua)) return "macOS";
+  if (/Android/.test(ua)) return "Android";
+  if (/iPhone|iPad|iPod/.test(ua)) return "iOS";
+  if (/Linux/.test(platform)) return "Linux";
+  return "Unknown";
+}
