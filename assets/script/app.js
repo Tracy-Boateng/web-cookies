@@ -72,3 +72,47 @@ document.addEventListener("DOMContentLoaded", () => {
     logCookies();
   }
 });
+
+acceptAllBtn.addEventListener("click", () => {
+  setCookie("browser", getBrowserName(), 20);
+  setCookie("os", getOSName(), 20);
+  setCookie("screen", `${screen.width}x${screen.height}`, 20);
+  setCookie("visited", "true", 20);
+  hideModal(cookieModal);
+  logCookies();
+});
+
+
+settingsBtn.addEventListener("click", () => {
+  hideModal(cookieModal);
+  showModal(settingsModal);
+});
+
+
+saveSettingsBtn.addEventListener("click", () => {
+  const wantBrowser = settingsForm.querySelector('input[name="browser"]').checked;
+  const wantOS = settingsForm.querySelector('input[name="os"]').checked;
+  const wantScreen = settingsForm.querySelector('input[name="screen"]').checked;
+
+  let anySet = false;
+  if (wantBrowser) {
+    setCookie("browser", getBrowserName(), 20);
+    anySet = true;
+  }
+  if (wantOS) {
+    setCookie("os", getOSName(), 20);
+    anySet = true;
+  }
+  if (wantScreen) {
+    setCookie("screen", `${screen.width}x${screen.height}`, 20);
+    anySet = true;
+  }
+  if (!anySet) {
+    setCookie("visited", "true", 20);
+  } else {
+    setCookie("visited", "true", 20);
+  }
+
+  hideModal(settingsModal);
+  logCookies();
+});
